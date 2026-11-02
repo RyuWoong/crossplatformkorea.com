@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Send } from 'lucide-react';
 import { Button } from '@/components/uis/Button';
-import { cn } from '@/lib/utils';
+import { cn, isImeComposing } from '@/lib/utils';
 import { t } from '@/lib/i18n';
 import { GptModel } from './types';
 
@@ -31,6 +31,8 @@ export function ChatInput({
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
+    // Enter also confirms a Hangul syllable; sending then would cut or repeat it.
+    if (isImeComposing(e)) return;
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       if (hasApiKey && message.trim() && !isSending) {
