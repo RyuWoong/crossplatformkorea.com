@@ -1,5 +1,5 @@
-import TypingText from '@/components/uis/TypingText';
 import type { ReactNode } from 'react';
+import TypingText from './TypingText';
 
 export default function CommunityPageHeader({
   eyebrow,

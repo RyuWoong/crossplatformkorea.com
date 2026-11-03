@@ -1,4 +1,3 @@
-import TypingText from '@/components/uis/TypingText';
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { Link, useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useQuery, useMutation } from 'convex/react';
@@ -10,6 +9,7 @@ import { useTranslation } from 'react-i18next';
 import { ArrowLeft, MessageSquare, Heart, Pencil, Trash2, Eye, Loader2 } from 'lucide-react';
 import AuthorCard from './AuthorCard';
 import PostStatusBadge from '@/components/uis/PostStatusBadge';
+import TypingText from '@/components/uis/TypingText';
 import PostContent from './PostContent';
 import { motion, useReducedMotion } from 'framer-motion';
 import { revealVariants, staggerVariants } from '@/lib/motion';

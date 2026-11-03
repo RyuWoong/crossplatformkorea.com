@@ -1,4 +1,3 @@
-import TypingText from '@/components/uis/TypingText';
 import { memo, useMemo, useState } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { usePaginatedQuery, useQuery } from 'convex/react';
@@ -8,6 +7,7 @@ import { api } from '@convex/_generated/api';
 import { DEFAULT_CATEGORY } from '@convex/constants';
 import { useAuthStore } from '@/stores/authStore';
 import { Button } from '@/components/uis/Button';
+import TypingText from '@/components/uis/TypingText';
 import { useMetaTags } from '@/hooks/useMetaTags';
 import { createSignInHref } from '@/lib/authRedirect';
 import CategoriesBreadCrumbs from './CategoriesBreadCrumbs';

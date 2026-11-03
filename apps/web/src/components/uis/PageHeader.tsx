@@ -1,6 +1,6 @@
-import TypingText from '@/components/uis/TypingText';
 import { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
+import TypingText from './TypingText';
 
 interface PageHeaderProps {
   eyebrow?: string;

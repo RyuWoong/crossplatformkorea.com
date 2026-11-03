@@ -1,4 +1,3 @@
-import TypingText from '@/components/uis/TypingText';
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import { t } from 'i18next';
@@ -13,6 +12,7 @@ import {
   SiGmail,
   SiBlogger,
 } from '@icons-pack/react-simple-icons';
+import TypingText from '@/components/uis/TypingText';
 
 interface ProfileHeaderProps {
   displayName: string;

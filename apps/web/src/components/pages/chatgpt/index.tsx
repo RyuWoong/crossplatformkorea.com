@@ -1,9 +1,9 @@
-import TypingText from '@/components/uis/TypingText';
 import React, { useState, useEffect } from 'react';
 import { useQuery, useMutation } from 'convex/react';
 import { api } from '@convex/_generated/api';
 import { MessageSquare, Settings, Plus, Trash2, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/uis/Button';
+import TypingText from '@/components/uis/TypingText';
 import { useAuthStore } from '@/stores/authStore';
 import { cn, devConsole } from '@/lib/utils';
 import { userFacingErrorMessage } from '@/lib/errors';

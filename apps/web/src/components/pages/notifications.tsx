@@ -1,4 +1,3 @@
-import TypingText from '@/components/uis/TypingText';
 import { useState } from 'react';
 import { Bell, Trash2, Check, CheckCheck, LogIn } from 'lucide-react';
 import { usePaginatedQuery, useMutation } from 'convex/react';
@@ -81,9 +80,7 @@ export default function NotificationsPage() {
     return (
       <div className="container mx-auto px-4 py-8">
         <div className="mx-auto max-w-2xl rounded-2xl border border-border/70 bg-card/60 p-8 text-center">
-          <h1 className="text-2xl font-bold mb-4">
-            <TypingText>{t('notifications.title')}</TypingText>
-          </h1>
+          <h1 className="text-2xl font-bold mb-4">{t('notifications.title')}</h1>
           <p className="mb-6 text-muted-foreground">{t('errors.auth.loginRequired')}</p>
           <Button
             variant="outline"

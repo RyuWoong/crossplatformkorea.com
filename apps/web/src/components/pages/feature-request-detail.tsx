@@ -1,4 +1,3 @@
-import TypingText from '@/components/uis/TypingText';
 import { useState, useCallback, ChangeEvent } from 'react';
 import { useParams, useNavigate, useLocation, Link } from 'react-router-dom';
 import { useConvexAuth, useQuery, useMutation } from 'convex/react';
@@ -14,6 +13,7 @@ import VoteButton from './feature-request/VoteButton';
 import RequestRoadmap from './feature-request/RequestRoadmap';
 import { createSignInHref } from '@/lib/authRedirect';
 import { Button } from '@/components/uis/Button';
+import TypingText from '@/components/uis/TypingText';
 import { Textarea } from '@/components/uis/Textarea';
 import { devConsole } from '@/lib/utils';
 import { useMetaTags } from '@/hooks/useMetaTags';
@@ -149,9 +149,7 @@ export default function FeatureRequestDetailPage() {
     return (
       <div className="article-page community-page">
         <div className="journal-empty">
-          <h1 className="text-xl font-semibold">
-            <TypingText>{t('featureRequest.notFound')}</TypingText>
-          </h1>
+          <h1 className="text-xl font-semibold">{t('featureRequest.notFound')}</h1>
           <p className="mt-3 text-sm text-muted-foreground">
             {t('featureRequest.notFoundDescription')}
           </p>
