@@ -7,7 +7,7 @@ import { api } from '@convex/_generated/api';
 import { DEFAULT_CATEGORY } from '@convex/constants';
 import { useAuthStore } from '@/stores/authStore';
 import { Button } from '@/components/uis/Button';
-import TypingText from '@/components/uis/TypingText';
+import TypingHeading from '@/components/uis/TypingHeading';
 import { useMetaTags } from '@/hooks/useMetaTags';
 import { createSignInHref } from '@/lib/authRedirect';
 import CategoriesBreadCrumbs from './CategoriesBreadCrumbs';
@@ -63,9 +63,7 @@ const Posts = memo(function PostsPage() {
         <div className="section-kicker">{t('posts.eyebrow')}</div>
         <div className="mt-6 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="min-w-0 max-w-2xl">
-            <h1 className="journal-title">
-              <TypingText>{title}</TypingText>
-            </h1>
+            <TypingHeading className="journal-title">{title}</TypingHeading>
             <p className="mt-5 max-w-xl text-sm leading-7 text-muted-foreground sm:text-base">
               {description}
             </p>
