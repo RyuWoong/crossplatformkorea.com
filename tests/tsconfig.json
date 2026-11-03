@@ -3,7 +3,7 @@
    * can resolve these files (they live outside the web and convex projects). */
   "compilerOptions": {
     "target": "ESNext",
-    "lib": ["ES2021", "dom"],
+    "lib": ["ES2021", "ES2022.Intl", "dom"],
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "allowJs": true,

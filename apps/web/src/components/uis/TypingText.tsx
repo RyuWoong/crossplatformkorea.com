@@ -1,4 +1,5 @@
 import { Children, cloneElement, isValidElement, type ReactNode } from 'react';
+import { graphemes } from '@/lib/graphemes';
 
 function textContent(children: ReactNode): string {
   return Children.toArray(children)
@@ -15,12 +16,12 @@ function textContent(children: ReactNode): string {
 /** Reveal text without changing its final wrapping or reserved space. */
 export default function TypingText({ children }: { children: ReactNode }) {
   const text = textContent(children).normalize('NFC');
-  const interval = Math.min(45, 900 / Math.max(1, Array.from(text).length));
+  const interval = Math.min(45, 900 / Math.max(1, graphemes(text).length));
   let characterIndex = 0;
   const reveal = (nodes: ReactNode): ReactNode =>
     Children.map(nodes, (child) => {
       if (typeof child === 'string' || typeof child === 'number') {
-        return Array.from(String(child).normalize('NFC')).map((character) => {
+        return graphemes(String(child)).map((character) => {
           const index = characterIndex++;
           return (
             <span
