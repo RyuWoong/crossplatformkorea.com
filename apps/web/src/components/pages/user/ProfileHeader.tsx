@@ -1,3 +1,4 @@
+import TypingText from '@/components/uis/TypingText';
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import { t } from 'i18next';
@@ -83,7 +84,7 @@ export default function ProfileHeader({
         {/* Display Name */}
         <div>
           <h1 className="text-3xl font-bold tracking-[-0.045em]">
-            {displayName || t('user.anonymousUser')}
+            <TypingText>{displayName || t('user.anonymousUser')}</TypingText>
           </h1>
         </div>
       </div>

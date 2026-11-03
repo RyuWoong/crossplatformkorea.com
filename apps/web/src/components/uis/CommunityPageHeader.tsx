@@ -1,3 +1,4 @@
+import TypingText from '@/components/uis/TypingText';
 import type { ReactNode } from 'react';
 
 export default function CommunityPageHeader({
@@ -18,7 +19,9 @@ export default function CommunityPageHeader({
       <div className="section-kicker">{eyebrow}</div>
       <div className="mt-5 grid gap-7 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
         <div className="min-w-0">
-          <h1 className="journal-title">{title}</h1>
+          <h1 className="journal-title">
+            <TypingText>{title}</TypingText>
+          </h1>
           <p className="mt-5 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base">
             {description}
           </p>

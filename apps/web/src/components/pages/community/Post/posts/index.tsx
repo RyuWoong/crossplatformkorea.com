@@ -1,3 +1,4 @@
+import TypingText from '@/components/uis/TypingText';
 import { memo, useMemo, useState } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { usePaginatedQuery, useQuery } from 'convex/react';
@@ -62,7 +63,9 @@ const Posts = memo(function PostsPage() {
         <div className="section-kicker">{t('posts.eyebrow')}</div>
         <div className="mt-6 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="min-w-0 max-w-2xl">
-            <h1 className="journal-title">{title}</h1>
+            <h1 className="journal-title">
+              <TypingText>{title}</TypingText>
+            </h1>
             <p className="mt-5 max-w-xl text-sm leading-7 text-muted-foreground sm:text-base">
               {description}
             </p>

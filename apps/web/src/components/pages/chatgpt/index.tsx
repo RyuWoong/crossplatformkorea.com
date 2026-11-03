@@ -1,3 +1,4 @@
+import TypingText from '@/components/uis/TypingText';
 import React, { useState, useEffect } from 'react';
 import { useQuery, useMutation } from 'convex/react';
 import { api } from '@convex/_generated/api';
@@ -257,7 +258,7 @@ export default function ChatGptPage() {
             <div className="flex items-center justify-between mb-4">
               <h1 className="text-lg font-bold flex items-center gap-2 text-gray-900 dark:text-white">
                 <MessageSquare size={20} />
-                ChatGPT
+                <TypingText>ChatGPT</TypingText>
               </h1>
               <Button
                 variant="ghost"

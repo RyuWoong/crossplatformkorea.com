@@ -1,3 +1,4 @@
+import TypingText from '@/components/uis/TypingText';
 import { useState, useCallback, ChangeEvent } from 'react';
 import { useParams, useNavigate, useLocation, Link } from 'react-router-dom';
 import { useConvexAuth, useQuery, useMutation } from 'convex/react';
@@ -148,7 +149,9 @@ export default function FeatureRequestDetailPage() {
     return (
       <div className="article-page community-page">
         <div className="journal-empty">
-          <h1 className="text-xl font-semibold">{t('featureRequest.notFound')}</h1>
+          <h1 className="text-xl font-semibold">
+            <TypingText>{t('featureRequest.notFound')}</TypingText>
+          </h1>
           <p className="mt-3 text-sm text-muted-foreground">
             {t('featureRequest.notFoundDescription')}
           </p>
@@ -179,7 +182,9 @@ export default function FeatureRequestDetailPage() {
           <span className="section-kicker">{t('featureRequest.header.detailKicker')}</span>
           <RequestStatus status={featureRequest.status} />
         </div>
-        <h1 className="article-title">{featureRequest.title}</h1>
+        <h1 className="article-title">
+          <TypingText>{featureRequest.title}</TypingText>
+        </h1>
         <div className="article-byline">
           <div className="flex flex-wrap items-center gap-4">
             <VoteButton

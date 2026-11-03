@@ -1,3 +1,4 @@
+import TypingText from '@/components/uis/TypingText';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Button } from '../uis/Button';
@@ -15,7 +16,7 @@ export default function NotFound() {
 
       <div className="max-w-md text-center">
         <h1 className="mb-3 text-balance text-2xl font-bold text-foreground">
-          {t('errors.notFound.title')}
+          <TypingText>{t('errors.notFound.title')}</TypingText>
         </h1>
         <p className="mb-8 text-pretty leading-relaxed text-muted-foreground">
           {t('errors.notFound.description')}

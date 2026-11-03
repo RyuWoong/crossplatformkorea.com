@@ -1,3 +1,4 @@
+import TypingText from '@/components/uis/TypingText';
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { Link, useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useQuery, useMutation } from 'convex/react';
@@ -314,9 +315,9 @@ export default function PostDetailsPage() {
               </Link>
               <PostStatusBadge post={post} />
             </motion.div>
-            <motion.h1 variants={revealVariants} className="article-title" itemProp="headline">
-              {post.title}
-            </motion.h1>
+            <h1 className="article-title" itemProp="headline">
+              <TypingText>{post.title}</TypingText>
+            </h1>
             {post.tags.length > 0 && (
               <motion.p
                 variants={revealVariants}
