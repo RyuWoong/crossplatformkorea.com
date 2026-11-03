@@ -2,7 +2,6 @@ import { memo, useMemo, useState } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { usePaginatedQuery, useQuery } from 'convex/react';
 import { ArrowDown, ArrowRight, Loader2, LogIn, MessageSquare, PenLine } from 'lucide-react';
-import { motion, useReducedMotion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { api } from '@convex/_generated/api';
 import { DEFAULT_CATEGORY } from '@convex/constants';
@@ -10,7 +9,6 @@ import { useAuthStore } from '@/stores/authStore';
 import { Button } from '@/components/uis/Button';
 import { useMetaTags } from '@/hooks/useMetaTags';
 import { createSignInHref } from '@/lib/authRedirect';
-import { revealVariants, staggerVariants } from '@/lib/motion';
 import CategoriesBreadCrumbs from './CategoriesBreadCrumbs';
 import PostsSkeleton from './PostsSkeleton';
 import PostListItem from './PostListItem';
@@ -18,7 +16,6 @@ import PostWriteModal from '../PostWriteModal';
 
 const Posts = memo(function PostsPage() {
   const { t } = useTranslation();
-  const reduceMotion = useReducedMotion();
   const navigate = useNavigate();
   const location = useLocation();
   const [searchParams] = useSearchParams();
@@ -61,28 +58,16 @@ const Posts = memo(function PostsPage() {
         onClose={() => setIsWriteModalOpen(false)}
         defaultCategory={category?.key || DEFAULT_CATEGORY}
       />
-      <motion.header
-        className="journal-header"
-        variants={staggerVariants}
-        initial={reduceMotion ? false : 'hidden'}
-        animate={reduceMotion ? undefined : 'visible'}
-      >
-        <motion.div variants={revealVariants} className="section-kicker">
-          {t('posts.eyebrow')}
-        </motion.div>
+      <header className="journal-header">
+        <div className="section-kicker">{t('posts.eyebrow')}</div>
         <div className="mt-6 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="min-w-0 max-w-2xl">
-            <motion.h1 variants={revealVariants} className="journal-title">
-              {title}
-            </motion.h1>
-            <motion.p
-              variants={revealVariants}
-              className="mt-5 max-w-xl text-sm leading-7 text-muted-foreground sm:text-base"
-            >
+            <h1 className="journal-title">{title}</h1>
+            <p className="mt-5 max-w-xl text-sm leading-7 text-muted-foreground sm:text-base">
               {description}
-            </motion.p>
+            </p>
           </div>
-          <motion.div variants={revealVariants} className="shrink-0">
+          <div className="shrink-0">
             <Button
               className="min-h-11 w-full gap-3 sm:w-auto"
               variant={isAuthenticated ? 'default' : 'outline'}
@@ -98,9 +83,9 @@ const Posts = memo(function PostsPage() {
               {isAuthenticated ? t('posts.write') : t('common.loginToWrite')}
               <ArrowRight size={15} />
             </Button>
-          </motion.div>
+          </div>
         </div>
-      </motion.header>
+      </header>
 
       <div className="journal-filters">
         <CategoriesBreadCrumbs />

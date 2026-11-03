@@ -18,12 +18,7 @@ import SummaryPostItem from './SummaryPostItem';
 import UserStats from './UserStats';
 import PlatformVisual from './PlatformVisual';
 import { motion, useReducedMotion } from 'framer-motion';
-import {
-  interactionSpring,
-  revealVariants,
-  scrollRevealVariants,
-  staggerVariants,
-} from '@/lib/motion';
+import { interactionSpring, scrollRevealVariants, staggerVariants } from '@/lib/motion';
 
 const MotionLink = motion.create(Link);
 
@@ -65,30 +60,17 @@ export default function SummaryPage() {
     <div className="relative">
       <section className="home-hero" aria-labelledby="home-title">
         <div className="grid items-center gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-4">
-          <motion.div
-            className="relative z-10"
-            variants={staggerVariants}
-            initial={reduceMotion ? false : 'hidden'}
-            animate={reduceMotion ? undefined : 'visible'}
-          >
-            <motion.p variants={revealVariants} className="section-kicker">
-              {t('summary.eyebrow')}
-            </motion.p>
-            <motion.h1 variants={revealVariants} id="home-title" className="home-title">
+          <div className="relative z-10">
+            <p className="section-kicker">{t('summary.eyebrow')}</p>
+            <h1 id="home-title" className="home-title">
               {t('summary.headlineFirst')}
               <br />
               <span className="text-muted-foreground">{t('summary.headlineSecond')}</span>
-            </motion.h1>
-            <motion.p
-              variants={revealVariants}
-              className="mt-6 max-w-md text-sm leading-7 text-muted-foreground sm:text-base"
-            >
+            </h1>
+            <p className="mt-6 max-w-md text-sm leading-7 text-muted-foreground sm:text-base">
               {t('summary.heroDescription')}
-            </motion.p>
-            <motion.div
-              variants={revealVariants}
-              className="mt-8 flex flex-wrap items-center gap-3"
-            >
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
               <MotionLink
                 to="/posts"
                 className="home-primary-link group"
@@ -111,8 +93,8 @@ export default function SummaryPage() {
                   className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                 />
               </MotionLink>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
           <PlatformVisual />
         </div>
         <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-border/70 pt-5 sm:mt-12 sm:gap-x-8">

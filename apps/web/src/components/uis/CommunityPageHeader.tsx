@@ -1,6 +1,4 @@
 import type { ReactNode } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
-import { revealVariants } from '@/lib/motion';
 
 export default function CommunityPageHeader({
   eyebrow,
@@ -15,14 +13,8 @@ export default function CommunityPageHeader({
   action?: ReactNode;
   aside?: ReactNode;
 }) {
-  const reducedMotion = useReducedMotion();
   return (
-    <motion.header
-      className="journal-header"
-      initial={reducedMotion ? false : 'hidden'}
-      animate="visible"
-      variants={revealVariants}
-    >
+    <header className="journal-header">
       <div className="section-kicker">{eyebrow}</div>
       <div className="mt-5 grid gap-7 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
         <div className="min-w-0">
@@ -34,6 +26,6 @@ export default function CommunityPageHeader({
         {action && <div className="flex shrink-0 items-center">{action}</div>}
       </div>
       {aside && <div className="mt-8 border-t border-border/70 pt-5 sm:mt-10">{aside}</div>}
-    </motion.header>
+    </header>
   );
 }
