@@ -82,7 +82,7 @@ const Posts = memo(function PostsPage() {
             >
               {isAuthenticated ? <PenLine size={16} /> : <LogIn size={16} />}
               {isAuthenticated ? t('posts.write') : t('common.loginToWrite')}
-              <ArrowRight size={15} />
+              {isAuthenticated && <ArrowRight size={15} />}
             </Button>
           </div>
         </div>
