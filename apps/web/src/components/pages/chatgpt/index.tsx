@@ -3,6 +3,7 @@ import { useQuery, useMutation } from 'convex/react';
 import { api } from '@convex/_generated/api';
 import { MessageSquare, Settings, Plus, Trash2, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/uis/Button';
+import TypingText from '@/components/uis/TypingText';
 import { useAuthStore } from '@/stores/authStore';
 import { cn, devConsole } from '@/lib/utils';
 import { userFacingErrorMessage } from '@/lib/errors';
@@ -257,7 +258,7 @@ export default function ChatGptPage() {
             <div className="flex items-center justify-between mb-4">
               <h1 className="text-lg font-bold flex items-center gap-2 text-gray-900 dark:text-white">
                 <MessageSquare size={20} />
-                ChatGPT
+                <TypingText>ChatGPT</TypingText>
               </h1>
               <Button
                 variant="ghost"

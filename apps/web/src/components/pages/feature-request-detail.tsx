@@ -13,6 +13,7 @@ import VoteButton from './feature-request/VoteButton';
 import RequestRoadmap from './feature-request/RequestRoadmap';
 import { createSignInHref } from '@/lib/authRedirect';
 import { Button } from '@/components/uis/Button';
+import TypingText from '@/components/uis/TypingText';
 import { Textarea } from '@/components/uis/Textarea';
 import { devConsole } from '@/lib/utils';
 import { useMetaTags } from '@/hooks/useMetaTags';
@@ -179,7 +180,9 @@ export default function FeatureRequestDetailPage() {
           <span className="section-kicker">{t('featureRequest.header.detailKicker')}</span>
           <RequestStatus status={featureRequest.status} />
         </div>
-        <h1 className="article-title">{featureRequest.title}</h1>
+        <h1 className="article-title">
+          <TypingText>{featureRequest.title}</TypingText>
+        </h1>
         <div className="article-byline">
           <div className="flex flex-wrap items-center gap-4">
             <VoteButton

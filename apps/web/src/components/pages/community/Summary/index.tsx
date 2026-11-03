@@ -17,13 +17,9 @@ import { createSignInHref } from '@/lib/authRedirect';
 import SummaryPostItem from './SummaryPostItem';
 import UserStats from './UserStats';
 import PlatformVisual from './PlatformVisual';
+import HomeHeadline from './HomeHeadline';
 import { motion, useReducedMotion } from 'framer-motion';
-import {
-  interactionSpring,
-  revealVariants,
-  scrollRevealVariants,
-  staggerVariants,
-} from '@/lib/motion';
+import { interactionSpring } from '@/lib/motion';
 
 const MotionLink = motion.create(Link);
 
@@ -65,30 +61,16 @@ export default function SummaryPage() {
     <div className="relative">
       <section className="home-hero" aria-labelledby="home-title">
         <div className="grid items-center gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-4">
-          <motion.div
-            className="relative z-10"
-            variants={staggerVariants}
-            initial={reduceMotion ? false : 'hidden'}
-            animate={reduceMotion ? undefined : 'visible'}
-          >
-            <motion.p variants={revealVariants} className="section-kicker">
-              {t('summary.eyebrow')}
-            </motion.p>
-            <motion.h1 variants={revealVariants} id="home-title" className="home-title">
-              {t('summary.headlineFirst')}
-              <br />
-              <span className="text-muted-foreground">{t('summary.headlineSecond')}</span>
-            </motion.h1>
-            <motion.p
-              variants={revealVariants}
-              className="mt-6 max-w-md text-sm leading-7 text-muted-foreground sm:text-base"
-            >
+          <div className="relative z-10">
+            <p className="section-kicker">{t('summary.eyebrow')}</p>
+            <HomeHeadline
+              firstLine={t('summary.headlineFirst')}
+              secondLine={t('summary.headlineSecond')}
+            />
+            <p className="mt-6 max-w-md text-sm leading-7 text-muted-foreground sm:text-base">
               {t('summary.heroDescription')}
-            </motion.p>
-            <motion.div
-              variants={revealVariants}
-              className="mt-8 flex flex-wrap items-center gap-3"
-            >
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
               <MotionLink
                 to="/posts"
                 className="home-primary-link group"
@@ -111,8 +93,8 @@ export default function SummaryPage() {
                   className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                 />
               </MotionLink>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
           <PlatformVisual />
         </div>
         <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-border/70 pt-5 sm:mt-12 sm:gap-x-8">
@@ -127,13 +109,9 @@ export default function SummaryPage() {
         </div>
       </section>
 
-      <motion.section
+      <section
         className="grid border-y border-border/80 md:grid-cols-3"
         aria-label={t('summary.exploreLabel')}
-        variants={staggerVariants}
-        initial={false}
-        whileInView={reduceMotion ? undefined : 'visible'}
-        viewport={{ once: true, amount: 0.15 }}
       >
         {destinations.map(({ key, to, icon: Icon }) => {
           const content = (
@@ -143,7 +121,7 @@ export default function SummaryPage() {
                 <h2 className="text-lg font-semibold tracking-tight">{t(`summary.${key}Title`)}</h2>
                 <ArrowUpRight
                   size={18}
-                  className="shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  className="shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transform-none motion-reduce:transition-none"
                 />
               </div>
               <p className="mt-2 text-sm leading-6 text-muted-foreground">
@@ -152,28 +130,22 @@ export default function SummaryPage() {
             </>
           );
           return to.startsWith('https://') ? (
-            <motion.a
+            <a
               key={key}
               href={to}
               target="_blank"
               rel="noopener noreferrer"
               className="home-destination group"
-              variants={scrollRevealVariants}
             >
               {content}
-            </motion.a>
+            </a>
           ) : (
-            <MotionLink
-              key={key}
-              to={to}
-              className="home-destination group"
-              variants={scrollRevealVariants}
-            >
+            <Link key={key} to={to} className="home-destination group">
               {content}
-            </MotionLink>
+            </Link>
           );
         })}
-      </motion.section>
+      </section>
 
       <section className="py-12 sm:py-16" aria-labelledby="latest-title">
         <div className="mb-7 flex items-end justify-between gap-4">

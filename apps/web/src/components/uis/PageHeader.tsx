@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
+import TypingText from './TypingText';
 
 interface PageHeaderProps {
   eyebrow?: string;
@@ -21,7 +22,9 @@ export default function PageHeader({
       <div className="relative z-10 flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
         <div>
           {eyebrow && <div className="section-kicker">{eyebrow}</div>}
-          <h1 className="page-title">{title}</h1>
+          <h1 className="page-title">
+            <TypingText>{title}</TypingText>
+          </h1>
           {description && <div className="page-description">{description}</div>}
         </div>
         {action && <div className="shrink-0">{action}</div>}
