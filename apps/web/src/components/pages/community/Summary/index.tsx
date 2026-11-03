@@ -119,7 +119,10 @@ export default function SummaryPage() {
               <Icon size={19} strokeWidth={1.5} className="text-muted-foreground" />
               <div className="mt-5 flex items-center justify-between gap-3">
                 <h2 className="text-lg font-semibold tracking-tight">{t(`summary.${key}Title`)}</h2>
-                <ArrowUpRight size={18} className="shrink-0" />
+                <ArrowUpRight
+                  size={18}
+                  className="shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transform-none motion-reduce:transition-none"
+                />
               </div>
               <p className="mt-2 text-sm leading-6 text-muted-foreground">
                 {t(`summary.${key}Description`)}
@@ -132,12 +135,12 @@ export default function SummaryPage() {
               href={to}
               target="_blank"
               rel="noopener noreferrer"
-              className="home-destination"
+              className="home-destination group"
             >
               {content}
             </a>
           ) : (
-            <Link key={key} to={to} className="home-destination">
+            <Link key={key} to={to} className="home-destination group">
               {content}
             </Link>
           );
